@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function PATCH(
   request: NextRequest,
-  { params }: { params: Promise<{ id: number }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { userId } = await auth();
@@ -27,7 +27,7 @@ export async function PATCH(
         {
           error: "Admin access required",
         },
-        { status: 403 }
+        { status: 403 },
       );
     }
 
@@ -57,7 +57,7 @@ export async function PATCH(
       {
         error: "Internal server error",
       },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
